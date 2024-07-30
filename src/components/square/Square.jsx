@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { StyledSquare } from './style';
 
 const Square = () => {
-	const [color, setColor] = useState('red');
-	console.log(color);
+	const [isGreen, setIsGreen] = useState(true);
+	console.log(isGreen);
 	return (
 		<>
-			<StyledSquare $newColor={color} />
-			<button onClick={() => changeColor(setColor)}>click me</button>
+			<StyledSquare $newColor={isGreen} />
+			<button onClick={() => changeColor(isGreen, setIsGreen)}>click me</button>
 		</>
 	);
 };
 
-const changeColor = setColor => {
-	setColor('green');
+const changeColor = (isGreen, setIsGreen) => {
+	setIsGreen(!isGreen);
 };
 export default Square;
